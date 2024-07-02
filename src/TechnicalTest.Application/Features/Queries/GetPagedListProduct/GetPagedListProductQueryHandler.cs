@@ -1,13 +1,24 @@
 ﻿using MediatR;
+using TechnicalTest.Application.Interfaces.Repositories;
 using TechnicalTest.Application.Wrappers;
 using TechnicalTest.Domain.Entities;
 
 namespace TechnicalTest.Application.Features.Queries.GetPagedListProduct;
 
-public class GetPagedListProductQueryHandler() : IRequestHandler<GetPagedListProductQuery, PagedResponse<Product>>
+public class GetPagedListProductQueryHandler(IProductRepository productRepository)
+    : IRequestHandler<GetPagedListProductQuery, PagedResponse<Product>>
 {
-    public Task<PagedResponse<Product>> Handle(GetPagedListProductQuery request, CancellationToken cancellationToken)
+    public async Task<PagedResponse<Product>> Handle(
+        GetPagedListProductQuery request,
+        CancellationToken cancellationToken
+    )
     {
-        throw new NotImplementedException();
+        var result = await productRepository.GetPagedListAsync(
+            request.PageNumber,
+            request.PageSize,
+            request.Name
+        );
+
+        return new PagedResponse<Product>(result);
     }
 }

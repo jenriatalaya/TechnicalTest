@@ -11,7 +11,7 @@ using TechnicalTest.Infrastructure.Contexts;
 namespace TechnicalTest.Infrastructure.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20240702085155_InitialCreate")]
+    [Migration("20240702135403_InitialCreate")]
     partial class InitialCreate
     {
         /// <inheritdoc />
@@ -77,7 +77,10 @@ namespace TechnicalTest.Infrastructure.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Products", (string)null);
+                    b.ToTable("Products", null, t =>
+                        {
+                            t.ExcludeFromMigrations();
+                        });
                 });
 
             modelBuilder.Entity("TechnicalTest.Domain.Entities.User", b =>
