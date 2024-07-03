@@ -11,8 +11,6 @@ El proyecto está configurado para utilizar una base de datos PostgreSQL en la n
 
     Ejecución de Migraciones:
 
-    bash
-
     dotnet ef database update --context ApplicationDbContext --project ../TechnicalTest.Infrastructure
 
     Este comando aplicará las migraciones al contexto ApplicationDbContext utilizando el proyecto TechnicalTest.Infrastructure donde están definidas las configuraciones de Entity Framework.
