@@ -9,7 +9,7 @@ namespace TechnicalTest.Application.Features.Commands.CreateOrganization;
 public class CreateOrganizationCommandHandler(
     IOrganizationRepository organizationRepository,
     IOrganizationService organizationService,
-    IUnitOfWork unitOfWork
+    IApplicationUnitOfWork unitOfWork
 ) : IRequestHandler<CreateOrganizationCommand, BaseResult<long>>
 {
     public async Task<BaseResult<long>> Handle(

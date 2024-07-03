@@ -9,4 +9,5 @@ namespace TechnicalTest.Application.Interfaces.Repositories;
 
 public interface IUserRepository : IGenericRepository<User>
 {
+    Task<User> GetUserByUsernameAsync(string username);
 }

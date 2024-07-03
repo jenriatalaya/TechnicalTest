@@ -7,9 +7,16 @@ namespace TechnicalTest.Api.Controllers;
 
 [ApiController]
 [ApiResultFilter]
+[Route("api/v{version:apiVersion}/{slugTenant}/[controller]/[action]")]
+public abstract class BaseApiControllerWithTenant : ControllerBase
+{
+    protected IMediator Mediator => HttpContext.RequestServices.GetService<IMediator>();
+}
+
+[ApiController]
+[ApiResultFilter]
 [Route("api/v{version:apiVersion}/[controller]/[action]")]
 public abstract class BaseApiController : ControllerBase
 {
-    private IMediator _mediator;
-    protected IMediator Mediator => _mediator ??= HttpContext.RequestServices.GetService<IMediator>();
+    protected IMediator Mediator => HttpContext.RequestServices.GetService<IMediator>();
 }

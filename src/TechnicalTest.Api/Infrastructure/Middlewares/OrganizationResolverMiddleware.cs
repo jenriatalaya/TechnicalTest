@@ -15,7 +15,7 @@ public class OrganizationResolverMiddleware
 
         if (pathSegments.Length > 1)
         {
-            var slugTenant = pathSegments[1];
+            var slugTenant = pathSegments[3];
             context.Items["slugTenant"] = slugTenant;
         }
 

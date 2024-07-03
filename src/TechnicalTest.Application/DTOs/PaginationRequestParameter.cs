@@ -1,4 +1,4 @@
-namespace TechnicalTest.Application.Parameters;
+namespace TechnicalTest.Application.DTOs;
 
 public class PaginationRequestParameter
 {

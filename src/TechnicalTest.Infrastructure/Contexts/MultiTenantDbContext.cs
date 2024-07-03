@@ -25,8 +25,8 @@ public class MultiTenantDbContext : DbContext
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
-        //if (!optionsBuilder.IsConfigured)
-        //{
+        // if (!optionsBuilder.IsConfigured)
+        // {
             var connectionString = _organizationService.GetConnectionByOrganization().Result;
             if (string.IsNullOrEmpty(connectionString))
             {
@@ -44,6 +44,6 @@ public class MultiTenantDbContext : DbContext
             );
 
             optionsBuilder.UseNpgsql(connectionString).UseSnakeCaseNamingConvention();
-        }
-    //}
+        // }
+    }
 }

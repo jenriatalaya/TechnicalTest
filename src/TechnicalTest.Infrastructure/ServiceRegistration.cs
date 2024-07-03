@@ -35,7 +35,9 @@ public static class ServiceRegistration
         );
 
         services.AddScoped<IOrganizationService, OrganizationService>();
-        services.AddScoped<IUnitOfWork, UnitOfWork>();
+        services.AddScoped<IUserService, UserService>();
+        services.AddScoped<IApplicationUnitOfWork, ApplicationUnitOfWork>();
+        services.AddScoped<IMultiTenantUnitOfWork, MultiTenantUnitOfWork>();
         services.RegisterRepositories();
         return services;
     }
